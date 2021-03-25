@@ -20,7 +20,7 @@ public class BoardController {
     @GetMapping("/list")
     public String list(Model model){
         List<Board> boards = boardRepository.findAll();
-        model.addAttribute("board", boards);
+        model.addAttribute("boards", boards);
         return "board/list";
     }
 }
