@@ -23,4 +23,10 @@ public class BoardController {
         model.addAttribute("boards", boards);
         return "board/list";
     }
+
+    @GetMapping("/form")
+    public String form(Model model){
+
+        return "board/form";
+    }
 }
