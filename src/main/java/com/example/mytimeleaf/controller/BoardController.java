@@ -2,11 +2,15 @@ package com.example.mytimeleaf.controller;
 
 import com.example.mytimeleaf.model.Board;
 import com.example.mytimeleaf.repository.BoardRepository;
+import com.example.mytimeleaf.validator.BoardValidator;
+import net.bytebuddy.implementation.bind.MethodDelegationBinder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -15,6 +19,9 @@ public class BoardController {
 
     @Autowired
     private BoardRepository boardRepository;
+
+    @Autowired
+    private BoardValidator boardValidator;
 
     @GetMapping("/list")
     public String list(Model model){
@@ -35,7 +42,10 @@ public class BoardController {
     }
 
     @PostMapping("/form")
-    public String boardSubmit(@ModelAttribute Board board){
+    public String boardSubmit(@Valid Board board, BindingResult bindingResult){
+        boardValidator.validate(board, bindingResult);
+        if(bindingResult.hasErrors())
+            return "board/form";
         boardRepository.save(board);
         return "redirect:/board/list";
     }
