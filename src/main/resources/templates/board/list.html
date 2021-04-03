@@ -27,12 +27,13 @@
         </table>
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
-                <li class="page-item disabled" th:classappend="${#startPage == boards.pageable.pageNumber+1} ? 'disabled' ">
-                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                <li class="page-item" th:classappend="${1 == boards.pageable.pageNumber+1} ? 'disabled' ">
+                    <a class="page-link" href="#" th:href="@{list(page=${boards.pageable.pageNumber-1})}"tabindex="-1" aria-disabled="true">Previous</a>
                 </li>
-                <li class="page-item" th:classappend="${i == boards.pageable.pageNumber+1}  ? 'disabled'" th:each="i : ${#numbers.sequence(startPage,endPage)}"><a class="page-link" href="#" th:text="${i}">1</a></li>
-                <li class="page-item" th:classappend="${endPage == boards.pageable.pageNumber+1} ? 'disabled'">
-                    <a class="page-link" href="#">Next</a>
+                <li class="page-item" th:classappend="${i == boards.pageable.pageNumber+1}  ? 'disabled'" th:each="i : ${#numbers.sequence(startPage,endPage)}">
+                    <a class="page-link" href="#" th:href="@{list(page=${i-1})}"th:text="${i}">1</a></li>
+                <li class="page-item" th:classappend="${boards.totalPages == boards.pageable.pageNumber+1} ? 'disabled'">
+                    <a class="page-link" href="#" th:href="@{list(page=${boards.pageable.pageNumber+1})}">Next</a>
                 </li>
             </ul>
         </nav>
