@@ -42,12 +42,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
         auth.jdbcAuthentication()
                 .dataSource(dataSource)
-                .usersByUsernameQuery("select email, password, enabled " +
-                        "from bael users " +
-                        "where email=?")
-                .authoritiesByUsernameQuery("select email, authority " +
-                        "from authorities " +
-                        "where email=?");
+                .passwordEncoder(passwordEncoder())
+                .usersByUsernameQuery("select username, password, enabled " +
+                        "from users " +
+                        "where username=?")
+                .authoritiesByUsernameQuery("select username, name " +
+                        "from user_role ur inner join user u on ur.user_id = u.id " +
+                        "inner join role r on ur.role_id = r.id " +
+                        "where username=?");
     }
 
     @Bean
