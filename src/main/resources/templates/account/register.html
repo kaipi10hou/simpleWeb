@@ -9,10 +9,10 @@
   <body class="text-center">
 
 <main class="form-signin">
-  <form method="post" th:action="@{/account/login}">
+  <form method="post" th:action="@{/account/register}">
     <img class="mb-4" src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
     <h1 class="h3 mb-3 fw-normal">회원가입</h1>
-    <div th:if="${param.error}" class="alert alert-danger" role="alert">
+    <div th:if="${param.error}" class="alert alert-dbanger" role="alert">
       Invalid username and password.
     </div>
     <div th:if="${param.logout}" class="alert alert-primary" role="alert">
