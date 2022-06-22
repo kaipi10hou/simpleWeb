@@ -26,4 +26,8 @@ public class UserService {
         System.out.println(user.getUsername()+","+user.getPassword());
         return userRepository.save(user);
     }
+
+    public User findByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
 }

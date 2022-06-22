@@ -3,10 +3,7 @@ package com.example.mythymeleaf.model;
 import com.sun.istack.NotNull;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -21,6 +18,10 @@ public class Board {
     @Size(min=3, max=30, message = "제목은 3자 이상 30자 이하이어야 합니당.")
     private String title;
     private String content;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id") // User 테이블의 id값을 참조. User의 id가 PK이므로 생략가능
+    private User user;
 
     @Override
     public String toString() {
