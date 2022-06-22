@@ -3,18 +3,18 @@ package com.example.mythymeleaf.service;
 import com.example.mythymeleaf.model.Role;
 import com.example.mythymeleaf.model.User;
 import com.example.mythymeleaf.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class UserService {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
     public User save(User user){
         String encodedPassword = passwordEncoder.encode(user.getPassword());
