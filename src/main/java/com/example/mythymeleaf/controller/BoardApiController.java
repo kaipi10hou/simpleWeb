@@ -1,9 +1,9 @@
-package com.example.mytimeleaf.controller;
+package com.example.mythymeleaf.controller;
 
 import java.util.List;
 
-import com.example.mytimeleaf.model.Board;
-import com.example.mytimeleaf.repository.BoardRepository;
+import com.example.mythymeleaf.model.Board;
+import com.example.mythymeleaf.repository.BoardRepository;
 import org.springframework.web.bind.annotation.*;
 import org.thymeleaf.util.StringUtils;
 

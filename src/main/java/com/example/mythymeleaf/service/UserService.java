@@ -1,8 +1,8 @@
-package com.example.mytimeleaf.service;
+package com.example.mythymeleaf.service;
 
-import com.example.mytimeleaf.model.Role;
-import com.example.mytimeleaf.model.User;
-import com.example.mytimeleaf.repository.UserRepository;
+import com.example.mythymeleaf.model.Role;
+import com.example.mythymeleaf.model.User;
+import com.example.mythymeleaf.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

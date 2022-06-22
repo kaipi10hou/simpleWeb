@@ -1,4 +1,4 @@
-package com.example.mytimeleaf.model;
+package com.example.mythymeleaf.model;
 
 import com.sun.istack.NotNull;
 import lombok.Data;

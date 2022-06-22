@@ -1,6 +1,6 @@
-package com.example.mytimeleaf.validator;
+package com.example.mythymeleaf.validator;
 
-import com.example.mytimeleaf.model.Board;
+import com.example.mythymeleaf.model.Board;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;

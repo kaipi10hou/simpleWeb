@@ -1,4 +1,4 @@
-package com.example.mytimeleaf;
+package com.example.mythymeleaf;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

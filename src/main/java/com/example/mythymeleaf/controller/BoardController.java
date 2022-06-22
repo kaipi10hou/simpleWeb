@@ -1,12 +1,10 @@
-package com.example.mytimeleaf.controller;
+package com.example.mythymeleaf.controller;
 
-import com.example.mytimeleaf.model.Board;
-import com.example.mytimeleaf.repository.BoardRepository;
-import com.example.mytimeleaf.validator.BoardValidator;
-import net.bytebuddy.implementation.bind.MethodDelegationBinder;
+import com.example.mythymeleaf.model.Board;
+import com.example.mythymeleaf.repository.BoardRepository;
+import com.example.mythymeleaf.validator.BoardValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
@@ -15,7 +13,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @Controller
 @RequestMapping("/board")

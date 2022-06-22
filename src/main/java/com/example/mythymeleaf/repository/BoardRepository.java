@@ -1,6 +1,6 @@
-package com.example.mytimeleaf.repository;
+package com.example.mythymeleaf.repository;
 
-import com.example.mytimeleaf.model.Board;
+import com.example.mythymeleaf.model.Board;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
