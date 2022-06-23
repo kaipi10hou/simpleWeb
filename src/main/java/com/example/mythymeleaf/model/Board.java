@@ -1,5 +1,6 @@
 package com.example.mythymeleaf.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 import lombok.Data;
 
@@ -21,6 +22,7 @@ public class Board {
 
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id") // User 테이블의 id값을 참조. User의 id가 PK이므로 생략가능
+    @JsonIgnore
     private User user;
 
     @Override
