@@ -1,6 +1,6 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/common :: head('Hello, Spring Boot!')"/>
+<head th:replace="fragments/common :: head('Simple Page')"/>
   <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" th:replace="fragments/common :: menu('HOME')">
   </nav>
@@ -8,8 +8,9 @@
   <main class="container">
 
     <div class="starter-template text-center py-5 px-3">
-      <h1>Spring Boot Tutorial</h1>
-      <p class="lead">Spring Boot를 이용해 웹 페이지 제작<br> Spring Security, JPA를 이용해 보안 설정과 데이터 다루기</p>
+      <h1>portfolio</h1>
+      <p class="lead">유저 권한, 게시물, 파일 업/다운로드 기능구현<br> Spring Security, JPA</p>
+      <p>admin권한 유저 <br>id: user1 , pw : 1234</p>
     </div>
 
   </main>
