@@ -9,12 +9,31 @@
     <div class="container">
 
         <h2>자료 다운로드</h2>
+        <div>
+            <button id="btnDown" onclick="downMyFile()">다운로드</button>
+        </div>
         <div class="text-end" sec:authorize="hasRole('ROLE_ADMIN')">
             <form method="post" action="/fl/upload" enctype="multipart/form-data">
                 <input type="file" name="uploadfile">
                 <button type="submit" class="btn btn-primary" >업로드</button>
             </form>
         </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+
+            function downMyFile(){
+                $.ajax({
+                    url: '/fl/download/',
+                    type: 'GET',
+                    success: function(result) {
+                        alert('다운로드완료.');
+                    }
+                });
+
+            }
+        </script>
+
 
     </div>
 </main>
