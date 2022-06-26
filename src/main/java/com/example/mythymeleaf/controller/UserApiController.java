@@ -1,10 +1,13 @@
 package com.example.mythymeleaf.controller;
 
 import com.example.mythymeleaf.model.Board;
+import com.example.mythymeleaf.model.QUser;
 import com.example.mythymeleaf.model.User;
 import com.example.mythymeleaf.repository.UserRepository;
+import com.querydsl.core.types.Predicate;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Iterator;
 import java.util.List;
 
 @RestController
@@ -18,10 +21,22 @@ class UserApiController {
     }
 
     @GetMapping("/users")
-    List<User> all(){
-        List<User> user = repository.findAll();
-        user.get(0).getBoards().size();
-        return user;
+    Iterable<User> all(@RequestParam(required = false) String method, String text){
+        Iterable<User> users = null;
+        if ("query".equals(method)) {
+            users = repository.findByUsernameQuery(text);
+        } else if ("querydsl".equals(method)) {
+            QUser user = QUser.user;
+            Predicate predicate = user.username.contains(text);
+            users = repository.findAll(predicate);
+        } else if ("querydsl-custom".equals(method)){
+            users = repository.findByUsernameCustom(text);
+        } else if ("jdbc".equals(method)){
+            users = repository.findByUsernameJDBC(text);
+        } else {
+            users = repository.findAll();
+        }
+        return users;
     }
 
     @PostMapping("/user")
